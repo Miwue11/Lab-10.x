@@ -8,9 +8,10 @@ export const filtrarPersonajes = async (
     const { data } = await axios.get(
       `http://localhost:3000/personajes?nombre_like=${nombre}`
     );
-    return data.filter((personaje: Personaje) =>
+    data.filter((personaje: Personaje) =>
       personaje.nombre.toLowerCase().includes(nombre.toLowerCase())
     );
+    return data;
   } catch (error) {
     throw new Error("Error fetching characters: " + error);
   }
